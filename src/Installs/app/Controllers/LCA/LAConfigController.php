@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Kipl\Laracrm\Models\LCAConfigs;
 
-class LAConfigController extends Controller
+class LCAConfigController extends Controller
 {
 	var $skin_array = [
 		'White Skin' => 'skin-white',
@@ -37,9 +37,9 @@ class LAConfigController extends Controller
 	 */
 	public function index()
 	{
-		$configs = LAConfigs::getAll();
+		$configs = LCAConfigs::getAll();
 
-		return View('la.la_configs.index', [
+		return View('lca.lca_configs.index', [
 			'configs' => $configs,
 			'skins' => $this->skin_array,
 			'layouts' => $this->layout_array
