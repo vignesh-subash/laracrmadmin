@@ -3,28 +3,28 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ LAConfigs::getByKey('site_description') }}">
-    <meta name="author" content="Dwij IT Solutions">
+    <meta name="description" content="{{ LCAConfigs::getByKey('site_description') }}">
+    <meta name="author" content="Krishco Infolabs">
 
-    <meta property="og:title" content="{{ LAConfigs::getByKey('sitename') }}" />
+    <meta property="og:title" content="{{ LCAConfigs::getByKey('sitename') }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="{{ LAConfigs::getByKey('site_description') }}" />
-    
-    <meta property="og:url" content="http://laraadmin.com/" />
-    <meta property="og:sitename" content="laraAdmin" />
+    <meta property="og:description" content="{{ LCAConfigs::getByKey('site_description') }}" />
+
+    <meta property="og:url" content="http://laracrmadmin.com/" />
+    <meta property="og:sitename" content="laracrmadmin" />
 	<meta property="og:image" content="http://demo.adminlte.acacha.org/img/LaraAdmin-600x600.jpg" />
-    
+
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@laraadmin" />
-    <meta name="twitter:creator" content="@laraadmin" />
-    
-    <title>{{ LAConfigs::getByKey('sitename') }}</title>
-    
+    <meta name="twitter:site" content="@laracrmadmin" />
+    <meta name="twitter:creator" content="@laracrmadmin" />
+
+    <title>{{ LCAConfigs::getByKey('sitename') }}</title>
+
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('/la-assets/css/bootstrap.css') }}" rel="stylesheet">
 
 	<link href="{{ asset('la-assets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-    
+
     <!-- Custom styles for this template -->
     <link href="{{ asset('/la-assets/css/main.css') }}" rel="stylesheet">
 
@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><b>{{ LAConfigs::getByKey('sitename') }}</b></a>
+            <a class="navbar-brand" href="#"><b>{{ LCAConfigs::getByKey('sitename') }}</b></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -61,7 +61,7 @@
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <!--<li><a href="{{ url('/register') }}">Register</a></li>-->
                 @else
-                    <li><a href="{{ url(config('laraadmin.adminRoute')) }}">{{ Auth::user()->name }}</a></li>
+                    <li><a href="{{ url(config('laracrm.adminRoute')) }}">{{ Auth::user()->name }}</a></li>
                 @endif
             </ul>
         </div><!--/.nav-collapse -->
@@ -74,8 +74,8 @@
     <div class="container">
         <div class="row centered">
             <div class="col-lg-12">
-                <h1>{{ LAConfigs::getByKey('sitename_part1') }} <b><a>{{ LAConfigs::getByKey('sitename_part2') }}</a></b></h1>
-                <h3>{{ LAConfigs::getByKey('site_description') }}</h3>
+                <h1>{{ LCAConfigs::getByKey('sitename_part1') }} <b><a>{{ LCAConfigs::getByKey('sitename_part2') }}</a></b></h1>
+                <h3>{{ LCAConfigs::getByKey('site_description') }}</h3>
                 <h3><a href="{{ url('/login') }}" class="btn btn-lg btn-success">Get Started!</a></h3><br>
             </div>
             <div class="col-lg-2">
@@ -135,7 +135,7 @@
             </div>
 
             <div class="col-lg-7">
-				<h3 class="feature-title">What is LaraAdmin ?</h3><br>
+				<h3 class="feature-title">What is LaraCRMAdmin ?</h3><br>
 				<ol class="features">
 					<li><strong>CMS</strong> (Content Management System) &#8211; Manages Modules &amp; their Data</li>
 					<li>Backend <strong>Admin Panel</strong> &#8211; Data can be used in front end applications with ease.</li>
@@ -144,7 +144,7 @@
 
 				<h3 class="feature-title">Why LaraAdmin ?</h3><br>
                 <ol class="features">
-					<li><strong>Philosophy:</strong> Inspired by SugarCRM &amp; based on Advanced <strong>Data Types</strong> like Image, HTML, File, Dropdown, TagInput which makes developers job easy. See more in <a target="_blank" href="http://laraadmin.com/features">features</a></li>
+					<li><strong>Philosophy:</strong> Inspired by SugarCRM &amp; based on Advanced <strong>Data Types</strong> like Image, HTML, File, Dropdown, TagInput which makes developers job easy. See more in <a target="_blank" href="http://laracrm.com/features">features</a></li>
 					<li>Superior <strong>CRUD generation</strong> for Modules which generates Migration, Controller, Model and Views with single artisan command and integrates with Routes as as well.</li>
 					<li><strong>Form Maker</strong> helper is provided for generating entire form with single function call with module name as single parameter. It also gives you freedom to customise form for every field by providing method to generate single field with parameters for customisations.</li>
 					<li><b>Upload Manager </b>manages project files &amp; images which are integrated with your Module fields.</li>
@@ -162,15 +162,15 @@
         <div class="col-lg-5">
             <h3>Contact Us</h3><br>
             <p>
-				Dwij IT Solutions,<br/>
-				Web Development Company in Pune,<br/>
-                B4, Patang Plaza Phase 5,<br/>
-                Opp. PICT College,<br/>
-                Katraj, Pune, India - 411046
+			KIPL,<br/>
+				Web Development Company in Chennai,<br/>
+                Kodambakkam,<br/>
+
+                Chennai, India - 600034
             </p>
-			<div class="contact-link"><i class="fa fa-envelope-o"></i> <a href="mailto:hello@laraadmin.com">hello@laraadmin.com</a></div>
-			<div class="contact-link"><i class="fa fa-cube"></i> <a href="http://laraadmin.com">laraadmin.com</a></div>
-			<div class="contact-link"><i class="fa fa-building"></i> <a href="http://dwijitsolutions.com">dwijitsolutions.com</a></div>
+			<div class="contact-link"><i class="fa fa-envelope-o"></i> <a href="mailto:vignesh@krishcoinfolabs.com">vignesh@krishcoinfolabs.com</a></div>
+			<div class="contact-link"><i class="fa fa-cube"></i> <a href="http://laracrmadmin.com">laracrmadmin.com</a></div>
+			<div class="contact-link"><i class="fa fa-building"></i> <a href="http://krishcoinfolabs.com">krishcoinfolabs.com</a></div>
         </div>
 
         <div class="col-lg-7">
@@ -198,7 +198,7 @@
 <div id="c">
     <div class="container">
         <p>
-            <strong>Copyright &copy; 2016. Powered by <a href="https://dwijitsolutions.com"><b>Dwij IT Solutions</b></a>
+            <strong>Copyright &copy; 2020. Powered by <a href="https://krishcoinfolabs.com"><b>KIPL</b></a>
         </p>
     </div>
 </div>

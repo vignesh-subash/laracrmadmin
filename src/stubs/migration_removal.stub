@@ -1,7 +1,7 @@
 <?php
 /**
  * Migration genrated using LaraAdmin
- * Help: http://laraadmin.com
+ * Help: http://laracrm.com
  */
 
 use Illuminate\Database\Schema\Blueprint;
@@ -18,7 +18,7 @@ class __migration_class_name__ extends Migration
     {
         // This Module has been deleted.
         // You can remove this file after migrate:reset
-        
+
 		if (Schema::hasTable('__db_table_name__')) {
             Schema::drop('__db_table_name__');
         }

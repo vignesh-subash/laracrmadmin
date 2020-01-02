@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLaConfigsTable extends Migration
+class CreateLcaConfigsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLaConfigsTable extends Migration
      */
     public function up()
     {
-        Schema::create('la_configs', function (Blueprint $table) {
+        Schema::create('lca_configs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('key', 50);
 			$table->string('section', 100)->default("");
@@ -29,6 +29,6 @@ class CreateLaConfigsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('la_configs');
+        Schema::drop('lca_configs');
     }
 }

@@ -7,7 +7,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Dwij\Laraadmin\Models\Module;
+use Kipl\Laracrm\Models\Module;
 
 class CreateOrganizationsTable extends Migration
 {
@@ -24,19 +24,19 @@ class CreateOrganizationsTable extends Migration
             ["phone", "Phone", "Mobile", false, "", 0, 20, false],
             ["website", "Website", "URL", false, "http://", 0, 250, false],
             ["assigned_to", "Assigned to", "Dropdown", false, "0", 0, 0, false, "@employees"],
-            ["connect_since", "Connected Since", "Date", false, "date('Y-m-d')", 0, 0, false],
+            ["connect_since", "Connected Since", "Date", false, "date('d-m-Y')", 0, 0, false],
             ["address", "Address", "Address", false, "", 0, 1000, true],
             ["city", "City", "String", false, "", 0, 250, true],
             ["description", "Description", "Textarea", false, "", 0, 1000, false],
             ["profile_image", "Profile Image", "Image", false, "", 0, 250, false],
             ["profile", "Company Profile", "File", false, "", 0, 250, false],
         ]);
-		
+
 		/*
 		Row Format:
 		["field_name_db", "Label", "UI Type", "Unique", "Default_Value", "min_length", "max_length", "Required", "Pop_values"]
         Module::generate("Module_Name", "Table_Name", "view_column_name" "Fields_Array");
-        
+
 		Module::generate("Books", 'books', 'name', [
             ["address",     "Address",      "Address",  false, "",          0,  1000,   true],
             ["restricted",  "Restricted",   "Checkbox", false, false,       0,  0,      false],

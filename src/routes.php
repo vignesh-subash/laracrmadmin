@@ -26,12 +26,12 @@ Route::group([
 	Route::post(config('laracrm.adminRoute') . '/get_module_files/{module_id}', 'ModuleController@get_module_files');
 
 	/* ================== Code Editor ================== */
-	Route::get(config('laracrm.adminRoute') . '/lacodeeditor', function () {
-		if(file_exists(resource_path("views/la/editor/index.blade.php"))) {
-			return redirect(config('laracrm.adminRoute') . '/laeditor');
+	Route::get(config('laracrm.adminRoute') . '/lcacodeeditor', function () {
+		if(file_exists(resource_path("views/lca/editor/index.blade.php"))) {
+			return redirect(config('laracrm.adminRoute') . '/lcaeditor');
 		} else {
 			// show install code editor page
-			return View('la.editor.install');
+			return View('lca.editor.install');
 		}
 	});
 

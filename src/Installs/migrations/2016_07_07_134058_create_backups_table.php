@@ -7,7 +7,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Dwij\Laraadmin\Models\Module;
+use Kipl\Laracrm\Models\Module;
 
 class CreateBackupsTable extends Migration
 {
@@ -23,12 +23,12 @@ class CreateBackupsTable extends Migration
             ["file_name", "File Name", "String", true, "", 0, 256, true],
             ["backup_size", "File Size", "String",  false, 0, 0, 10, true],
         ]);
-		
+
 		/*
 		Row Format:
 		["field_name_db", "Label", "UI Type", "Unique", "Default_Value", "min_length", "max_length", "Required", "Pop_values"]
         Module::generate("Module_Name", "Table_Name", "view_column_name" "Fields_Array");
-        
+
 		Module::generate("Books", 'books', 'name', [
             ["address",     "Address",      "Address",  false, "",          0,  1000,   true],
             ["restricted",  "Restricted",   "Checkbox", false, false,       0,  0,      false],

@@ -66,8 +66,8 @@ class LCAProvider extends ServiceProvider
         include __DIR__.'/routes.php';
 
 		// For LCAEditor
-		if(file_exists(__DIR__.'/../../laeditor')) {
-			include __DIR__.'/../../laeditor/src/routes.php';
+		if(file_exists(__DIR__.'/../../lcaeditor')) {
+			include __DIR__.'/../../lcaeditor/src/routes.php';
 		}
 
         /*
@@ -134,8 +134,8 @@ class LCAProvider extends ServiceProvider
         $this->app->make('Kipl\Laracrm\Controllers\MenuController');
 
 		// For LCAEditor
-		if(file_exists(__DIR__.'/../../laeditor')) {
-			$this->app->make('Kipl\Laeditor\Controllers\CodeEditorController');
+		if(file_exists(__DIR__.'/../../lcaeditor')) {
+			$this->app->make('Kipl\Lcaeditor\Controllers\CodeEditorController');
 		}
 
 		/*

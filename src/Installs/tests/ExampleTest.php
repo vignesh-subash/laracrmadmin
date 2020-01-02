@@ -18,6 +18,6 @@ class ExampleTest extends TestCase
 		$this->artisan('db:seed');
 
         $this->visit('/')
-             ->see('LaraAdmin');
+             ->see('LaraCRMAdmin');
     }
 }

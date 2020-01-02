@@ -78,7 +78,7 @@ class CodeGenerator
         // Listing columns
         $inputFields = "";
         foreach ($config->module->fields as $field) {
-            $inputFields .= "\t\t\t\t\t@la_input($"."module, '".$field['colname']."')\n";
+            $inputFields .= "\t\t\t\t\t@lca_input($"."module, '".$field['colname']."')\n";
         }
         $inputFields = trim($inputFields);
         $md = str_replace("__input_fields__", $inputFields, $md);
@@ -98,7 +98,7 @@ class CodeGenerator
         // Listing columns
         $inputFields = "";
         foreach ($config->module->fields as $field) {
-            $inputFields .= "\t\t\t\t\t@la_input($"."module, '".$field['colname']."')\n";
+            $inputFields .= "\t\t\t\t\t@lca_input($"."module, '".$field['colname']."')\n";
         }
         $inputFields = trim($inputFields);
         $md = str_replace("__input_fields__", $inputFields, $md);
@@ -117,7 +117,7 @@ class CodeGenerator
         // Listing columns
         $displayFields = "";
         foreach ($config->module->fields as $field) {
-            $displayFields .= "\t\t\t\t\t\t@la_display($"."module, '".$field['colname']."')\n";
+            $displayFields .= "\t\t\t\t\t\t@lca_display($"."module, '".$field['colname']."')\n";
         }
         $displayFields = trim($displayFields);
         $md = str_replace("__display_fields__", $displayFields, $md);

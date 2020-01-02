@@ -1,4 +1,4 @@
-@extends("la.layouts.app")
+@extends("lca.layouts.app")
 
 @section("contentheader_title", "__module_name_2__")
 @section("contentheader_description", "__module_name_2__ listing")
@@ -7,9 +7,9 @@
 @section("htmlheader_title", "__module_name_2__ Listing")
 
 @section("headerElems")
-@la_access("__module_name__", "create")
+@lca_access("__module_name__", "create")
 	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add __singular_cap_var__</button>
-@endla_access
+@endlca_access
 @endsection
 
 @section("main-content")
@@ -39,13 +39,13 @@
 		</tr>
 		</thead>
 		<tbody>
-			
+
 		</tbody>
 		</table>
 	</div>
 </div>
 
-@la_access("__module_name__", "create")
+@lca_access("__module_name__", "create")
 <div class="modal fade" id="AddModal" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -53,11 +53,11 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Add __singular_cap_var__</h4>
 			</div>
-			{!! Form::open(['action' => 'LA\__controller_class_name__@store', 'id' => '__singular_var__-add-form']) !!}
+			{!! Form::open(['action' => 'LCA\__controller_class_name__@store', 'id' => '__singular_var__-add-form']) !!}
 			<div class="modal-body">
 				<div class="box-body">
-                    @la_form($module)
-					
+                    @lca_form($module)
+
 					{{--
 					__input_fields__
 					--}}
@@ -71,7 +71,7 @@
 		</div>
 	</div>
 </div>
-@endla_access
+@endlca_access
 
 @endsection
 
@@ -86,7 +86,7 @@ $(function () {
 	$("#example1").DataTable({
 		processing: true,
         serverSide: true,
-        ajax: "{{ url(config('laraadmin.adminRoute') . '/__singular_var___dt_ajax') }}",
+        ajax: "{{ url(config('laracrm.adminRoute') . '/__singular_var___dt_ajax') }}",
 		language: {
 			lengthMenu: "_MENU_",
 			search: "_INPUT_",
@@ -97,7 +97,7 @@ $(function () {
 		@endif
 	});
 	$("#__singular_var__-add-form").validate({
-		
+
 	});
 });
 </script>

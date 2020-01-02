@@ -1,4 +1,4 @@
-@extends('la.layouts.auth')
+@extends('lca.layouts.auth')
 
 @section('htmlheader_title')
     Log in
@@ -8,7 +8,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/home') }}"><b>{{ LAConfigs::getByKey('sitename_part1') }} </b>{{ LAConfigs::getByKey('sitename_part2') }}</a>
+            <a href="{{ url('/home') }}"><b>{{ LCAConfigs::getByKey('sitename_part1') }} </b>{{ LCAConfigs::getByKey('sitename_part2') }}</a>
         </div>
 
     @if (count($errors) > 0)
@@ -57,7 +57,7 @@
 
 </div><!-- /.login-box -->
 
-    @include('la.layouts.partials.scripts_auth')
+    @include('lca.layouts.partials.scripts_auth')
 
     <script>
         $(function () {

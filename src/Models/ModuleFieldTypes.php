@@ -1,6 +1,6 @@
 <?php
 
-namespace Kipl\Laraadmin\Models;
+namespace Kipl\Laracrm\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

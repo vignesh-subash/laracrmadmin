@@ -7,7 +7,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Dwij\Laraadmin\Models\Module;
+use Kipl\Laracrm\Models\Module;
 
 class CreateEmployeesTable extends Migration
 {
@@ -29,17 +29,17 @@ class CreateEmployeesTable extends Migration
             ["city", "City", "String", false, "", 0, 50, false],
             ["address", "Address", "Address", false, "", 0, 1000, false],
             ["about", "About", "String", false, "", 0, 0, false],
-            ["date_birth", "Date of Birth", "Date", false, "1990-01-01", 0, 0, false],
-            ["date_hire", "Hiring Date", "Date", false, "date('Y-m-d')", 0, 0, false],
-            ["date_left", "Resignation Date", "Date", false, "1990-01-01", 0, 0, false],
+            ["date_birth", "Date of Birth", "Date", false, "date('d-m-Y')", 0, 0, false],
+            ["date_hire", "Hiring Date", "Date", false, "date('d-m-Y')", 0, 0, false],
+            ["date_left", "Resignation Date", "Date", false, "date('d-m-Y')", 0, 0, false],
             ["salary_cur", "Current Salary", "Decimal", false, "0.0", 0, 2, false],
         ]);
-		
+
 		/*
 		Row Format:
 		["field_name_db", "Label", "UI Type", "Unique", "Default_Value", "min_length", "max_length", "Required", "Pop_values"]
         Module::generate("Module_Name", "Table_Name", "view_column_name" "Fields_Array");
-        
+
 		Module::generate("Books", 'books', 'name', [
             ["address",     "Address",      "Address",  false, "",          0,  1000,   true],
             ["restricted",  "Restricted",   "Checkbox", false, false,       0,  0,      false],

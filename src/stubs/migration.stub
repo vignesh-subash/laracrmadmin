@@ -1,7 +1,7 @@
 <?php
 /**
  * Migration genrated using LaraAdmin
- * Help: http://laraadmin.com
+ * Help: http://laracrm.com
  */
 
 use Illuminate\Database\Schema\Blueprint;
@@ -20,12 +20,12 @@ class __migration_class_name__ extends Migration
         Module::generate("__module_name__", '__db_table_name__', '__view_column__', '__fa_icon__', [
             __generated__
         ]);
-		
+
 		/*
 		Row Format:
 		["field_name_db", "Label", "UI Type", "Unique", "Default_Value", "min_length", "max_length", "Required", "Pop_values"]
         Module::generate("Module_Name", "Table_Name", "view_column_name" "Fields_Array");
-        
+
 		Module::generate("Books", 'books', 'name', [
             ["address",     "Address",      "Address",  false, "",          0,  1000,   true],
             ["restricted",  "Restricted",   "Checkbox", false, false,       0,  0,      false],
