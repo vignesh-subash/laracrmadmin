@@ -37,7 +37,7 @@
             <!-- Optionally, you can add icons to the links -->
             <li><a href="{{ url(config('laracrm.adminRoute')) }}"><i class='fa fa-home'></i> <span>Dashboard</span></a></li>
             <?php
-            $menuItems = Kipl\Laracrm\Models\Menu::where("parent", 0)->orderBy('hierarchy', 'asc')->get();
+            $menuItems = Vignesh\Laracrm\Models\Menu::where("parent", 0)->orderBy('hierarchy', 'asc')->get();
             ?>
             @foreach ($menuItems as $menu)
                 @if($menu->type == "module")

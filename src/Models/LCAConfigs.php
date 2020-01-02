@@ -1,6 +1,6 @@
 <?php
 
-namespace Kipl\Laraadmin\Models;
+namespace Vignesh\Laraadmin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
@@ -8,7 +8,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Exception;
 use Log;
 use DB;
-use Kipl\Laraadmin\Helpers\LCAHelper;
+use Vignesh\Laraadmin\Helpers\LCAHelper;
 
 class LCAConfigs extends Model
 {

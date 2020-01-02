@@ -1,11 +1,11 @@
 <?php
 
-namespace Kipl\Laracrm\Models;
+namespace Vignesh\Laracrm\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Kipl\Laracrm\Helpers\LCAHelper;
+use Vignesh\Laracrm\Helpers\LCAHelper;
 
 class Menu extends Model
 {

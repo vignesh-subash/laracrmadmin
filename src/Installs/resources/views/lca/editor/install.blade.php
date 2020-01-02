@@ -14,7 +14,7 @@
 	</div>
 	<div class="box-body">
 		<p>LaraCRMAdmin Code Editor does not comes inbuilt now. You can get it by following commands.</p>
-		<pre><code>composer require Kipl/laeditor</code></pre>
+		<pre><code>composer require Vignesh/laeditor</code></pre>
 		<p>This will download the editor package. Not install editor by following command:</p>
 		<pre><code>php artisan lca:editor</code></pre>
 		<p>Now refresh this page or go to <a href="{{ url(config('laracrm.adminRoute') . '/lcaeditor') }}">{{ url(config('laracrm.adminRoute') . '/laeditor') }}</a>.</p>

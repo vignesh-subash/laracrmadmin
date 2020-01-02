@@ -14,9 +14,9 @@ use DB;
 use Validator;
 use Datatables;
 use Collective\Html\FormFacade as Form;
-use Kipl\Laracrm\Models\Module;
-use Kipl\Laracrm\Models\ModuleFields;
-use Kipl\Laracrm\Helpers\LCAHelper;
+use Vignesh\Laracrm\Models\Module;
+use Vignesh\Laracrm\Models\ModuleFields;
+use Vignesh\Laracrm\Helpers\LCAHelper;
 use Artisan;
 use App\Models\Backup;
 

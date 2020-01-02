@@ -15,7 +15,7 @@ Route::get('files/{hash}/{name}', 'LCA\UploadsController@get_file');
 */
 
 $as = "";
-if(\Kipl\Laracrm\Helpers\LCAHelper::laravel_ver() == 5.5) {
+if(\Vignesh\Laracrm\Helpers\LCAHelper::laravel_ver() == 5.5) {
 	$as = config('laracrm.adminRoute').'.';
 
 	// Routes for Laravel 5.3

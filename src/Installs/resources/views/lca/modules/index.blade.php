@@ -1,7 +1,7 @@
 @extends("lca.layouts.app")
 
 <?php
-use Kipl\Laracrm\Models\Module;
+use Vignesh\Laracrm\Models\Module;
 ?>
 
 @section("contentheader_title", "Modules")

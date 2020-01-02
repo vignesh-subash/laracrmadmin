@@ -1,10 +1,10 @@
 <?php
 
-namespace Kipl\Laracrm\Commands;
+namespace Vignesh\Laracrm\Commands;
 
 use Illuminate\Console\Command;
 
-use Kipl\Laracrm\CodeGenerator;
+use Vignesh\Laracrm\CodeGenerator;
 
 class Migration extends Command
 {

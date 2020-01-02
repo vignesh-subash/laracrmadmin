@@ -1,13 +1,13 @@
 <?php
 
-namespace Kipl\Laracrm;
+namespace Vignesh\Laracrm;
 
 use Artisan;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
-use Kipl\Laracrm\Helpers\LCAHelper;
+use Vignesh\Laracrm\Helpers\LCAHelper;
 
 class LCAProvider extends ServiceProvider
 {
@@ -30,7 +30,7 @@ class LCAProvider extends ServiceProvider
         //echo "Laracrm Migrations started...";
         // Artisan::call('migrate', ['--path' => "vendor/dwij/laraadmin/src/Migrations/"]);
         //echo "Migrations completed !!!.";
-        // Execute by php artisan vendor:publish --provider="Kipl\Laracrm\LCAProvider"
+        // Execute by php artisan vendor:publish --provider="Vignesh\Laracrm\LCAProvider"
 
 		/*
         |--------------------------------------------------------------------------
@@ -103,19 +103,19 @@ class LCAProvider extends ServiceProvider
         $loader->alias('Gravatar', \Creativeorange\Gravatar\Facades\Gravatar::class);
 
         // For LaraAdmin Code Generation
-        $loader->alias('CodeGenerator', \Kipl\Laracrm\CodeGenerator::class);
+        $loader->alias('CodeGenerator', \Vignesh\Laracrm\CodeGenerator::class);
 
         // For LaraAdmin Form Helper
-        $loader->alias('LCAFormMaker', \Kipl\Laracrm\LCAFormMaker::class);
+        $loader->alias('LCAFormMaker', \Vignesh\Laracrm\LCAFormMaker::class);
 
         // For LaraAdmin Helper
-        $loader->alias('LCAHelper', \Kipl\Laracrm\Helpers\LCAHelper::class);
+        $loader->alias('LCAHelper', \Vignesh\Laracrm\Helpers\LCAHelper::class);
 
         // LaraAdmin Module Model
-        $loader->alias('Module', \Kipl\Laracrm\Models\Module::class);
+        $loader->alias('Module', \Vignesh\Laracrm\Models\Module::class);
 
 		// For LaraAdmin Configuration Model
-		$loader->alias('LCAConfigs', \Kipl\Laracrm\Models\LCAConfigs::class);
+		$loader->alias('LCAConfigs', \Vignesh\Laracrm\Models\LCAConfigs::class);
 
         // For Entrust
 		$loader->alias('Entrust', \Zizaco\Entrust\EntrustFacade::class);
@@ -129,13 +129,13 @@ class LCAProvider extends ServiceProvider
         |--------------------------------------------------------------------------
         */
 
-        $this->app->make('Kipl\Laracrm\Controllers\ModuleController');
-        $this->app->make('Kipl\Laracrm\Controllers\FieldController');
-        $this->app->make('Kipl\Laracrm\Controllers\MenuController');
+        $this->app->make('Vignesh\Laracrm\Controllers\ModuleController');
+        $this->app->make('Vignesh\Laracrm\Controllers\FieldController');
+        $this->app->make('Vignesh\Laracrm\Controllers\MenuController');
 
 		// For LCAEditor
 		if(file_exists(__DIR__.'/../../lcaeditor')) {
-			$this->app->make('Kipl\Lcaeditor\Controllers\CodeEditorController');
+			$this->app->make('Vignesh\Lcaeditor\Controllers\CodeEditorController');
 		}
 
 		/*
@@ -197,15 +197,15 @@ class LCAProvider extends ServiceProvider
         */
 
 		$commands = [
-            \Kipl\Laracrm\Commands\Migration::class,
-            \Kipl\Laracrm\Commands\Crud::class,
-            \Kipl\Laracrm\Commands\Packaging::class,
-            \Kipl\Laracrm\Commands\LCAInstall::class
+            \Vignesh\Laracrm\Commands\Migration::class,
+            \Vignesh\Laracrm\Commands\Crud::class,
+            \Vignesh\Laracrm\Commands\Packaging::class,
+            \Vignesh\Laracrm\Commands\LCAInstall::class
         ];
 
 		// For LCAEditor
 		if(file_exists(__DIR__.'/../../laeditor')) {
-			$commands[] = \Kipl\Laeditor\Commands\LCAEditor::class;
+			$commands[] = \Vignesh\Laeditor\Commands\LCAEditor::class;
 		}
 
         $this->commands($commands);

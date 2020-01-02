@@ -8,7 +8,7 @@ namespace App\Http\Controllers\LCA;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Kipl\Laracrm\Models\LCAConfigs;
+use Vignesh\Laracrm\Models\LCAConfigs;
 
 class LCAConfigController extends Controller
 {

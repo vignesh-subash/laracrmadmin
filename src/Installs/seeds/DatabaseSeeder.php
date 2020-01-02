@@ -2,11 +2,11 @@
 
 use Illuminate\Database\Seeder;
 
-use Kipl\Laracrm\Models\Module;
-use Kipl\Laracrm\Models\ModuleFields;
-use Kipl\Laracrm\Models\ModuleFieldTypes;
-use Kipl\Laracrm\Models\Menu;
-use Kipl\Laracrm\Models\LCAConfigs;
+use Vignesh\Laracrm\Models\Module;
+use Vignesh\Laracrm\Models\ModuleFields;
+use Vignesh\Laracrm\Models\ModuleFieldTypes;
+use Vignesh\Laracrm\Models\Menu;
+use Vignesh\Laracrm\Models\LCAConfigs;
 
 use App\Role;
 use App\Permission;

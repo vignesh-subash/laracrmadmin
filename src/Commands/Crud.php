@@ -1,14 +1,14 @@
 <?php
 
-namespace Kipl\Laracrm\Commands;
+namespace Vignesh\Laracrm\Commands;
 
 use Config;
 use Artisan;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Kipl\Laracrm\Models\Module;
-use Kipl\Laracrm\CodeGenerator;
+use Vignesh\Laracrm\Models\Module;
+use Vignesh\Laracrm\CodeGenerator;
 
 class Crud extends Command
 {

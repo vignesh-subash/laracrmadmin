@@ -3,7 +3,7 @@
 @section('htmlheader_title', 'Module View')
 
 <?php
-use Kipl\Laracrm\Models\Module;
+use Vignesh\Laracrm\Models\Module;
 ?>
 
 @section('main-content')

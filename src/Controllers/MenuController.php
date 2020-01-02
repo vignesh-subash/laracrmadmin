@@ -4,7 +4,7 @@
  * Help: http://laracrm.com
  */
 
-namespace Kipl\Laracrm\Controllers;
+namespace Vignesh\Laracrm\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -12,11 +12,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use DB;
 
-use Kipl\Laracrm\Models\Menu;
-use Kipl\Laracrm\Models\Module;
-use Kipl\Laracrm\Models\ModuleFields;
-use Kipl\Laracrm\Models\ModuleFieldTypes;
-use Kipl\Laracrm\Helpers\LAHelper;
+use Vignesh\Laracrm\Models\Menu;
+use Vignesh\Laracrm\Models\Module;
+use Vignesh\Laracrm\Models\ModuleFields;
+use Vignesh\Laracrm\Models\ModuleFieldTypes;
+use Vignesh\Laracrm\Helpers\LAHelper;
 
 class MenuController extends Controller
 {

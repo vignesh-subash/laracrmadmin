@@ -14,9 +14,9 @@ use DB;
 use Validator;
 use Datatables;
 use Collective\Html\FormFacade as Form;
-use Kipl\Laracrm\Models\Module;
-use Kipl\Laracrm\Models\ModuleFields;
-use Kipl\Laracrm\Helpers\LCAHelper;
+use Vignesh\Laracrm\Models\Module;
+use Vignesh\Laracrm\Models\ModuleFields;
+use Vignesh\Laracrm\Helpers\LCAHelper;
 use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use App\Permission;
@@ -30,7 +30,7 @@ class PermissionsController extends Controller
 
 	public function __construct() {
 		// Field Access of Listing Columns
-		if(\Kipl\Laracrm\Helpers\LCAHelper::laravel_ver() == 5.5) {
+		if(\Vignesh\Laracrm\Helpers\LCAHelper::laravel_ver() == 5.5) {
 			$this->middleware(function ($request, $next) {
 				$this->listing_cols = ModuleFields::listingColumnAccessScan('Permissions', $this->listing_cols);
 				return $next($request);

@@ -1,13 +1,13 @@
 <?php
 
-namespace Kipl\Laracrm\Models;
+namespace Vignesh\Laracrm\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Schema;
 use Log;
 use DB;
 
-use Kipl\Laracrm\Models\Module;
+use Vignesh\Laracrm\Models\Module;
 
 class ModuleFields extends Model
 {

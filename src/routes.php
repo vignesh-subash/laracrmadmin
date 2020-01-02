@@ -1,12 +1,12 @@
 <?php
 
 $as = "";
-if(\Kipl\Laracrm\Helpers\LCAHelper::laravel_ver() == 5.5) {
+if(\Vignesh\Laracrm\Helpers\LCAHelper::laravel_ver() == 5.5) {
 	$as = config('laracrm.adminRoute').'.';
 }
 
 Route::group([
-    'namespace'  => 'Kipl\Laracrm\Controllers',
+    'namespace'  => 'Vignesh\Laracrm\Controllers',
 	'as' => 'admin.',
     'middleware' => ['web', 'auth', 'permission:ADMIN_PANEL', 'role:SUPER_ADMIN']
 ], function () {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Kipl\Laracrm\Helpers;
+namespace Vignesh\Laracrm\Helpers;
 
 use DB;
 use Log;
 
-use Kipl\Laracrm\Models\Module;
+use Vignesh\Laracrm\Models\Module;
 
 class LCAHelper
 {
@@ -261,7 +261,7 @@ class LCAHelper
 			<div class="dd-handle dd3-handle"></div>
 			<div class="dd3-content"><i class="fa '.$menu->icon.'"></i> '.$menu->name.' '.$editing.'</div>';
 
-		$childrens = \Kipl\Laracrm\Models\Menu::where("parent", $menu->id)->orderBy('hierarchy', 'asc')->get();
+		$childrens = \Vignesh\Laracrm\Models\Menu::where("parent", $menu->id)->orderBy('hierarchy', 'asc')->get();
 
 		if(count($childrens) > 0) {
 			$str .= '<ol class="dd-list">';
@@ -276,7 +276,7 @@ class LCAHelper
 
 	// LCAHelper::print_menu($menu)
 	public static function print_menu($menu, $active = false) {
-		$childrens = \Kipl\Laracrm\Models\Menu::where("parent", $menu->id)->orderBy('hierarchy', 'asc')->get();
+		$childrens = \Vignesh\Laracrm\Models\Menu::where("parent", $menu->id)->orderBy('hierarchy', 'asc')->get();
 
 		$treeview = "";
 		$subviewSign = "";
@@ -304,7 +304,7 @@ class LCAHelper
 
 	// LCAHelper::print_menu_topnav($menu)
 	public static function print_menu_topnav($menu, $active = false) {
-		$childrens = \Kipl\Laracrm\Models\Menu::where("parent", $menu->id)->orderBy('hierarchy', 'asc')->get();
+		$childrens = \Vignesh\Laracrm\Models\Menu::where("parent", $menu->id)->orderBy('hierarchy', 'asc')->get();
 
 		$treeview = "";
 		$treeview2 = "";

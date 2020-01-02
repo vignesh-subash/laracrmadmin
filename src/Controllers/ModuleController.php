@@ -4,20 +4,20 @@
  * Help: http://laracrm.com
  */
 
-namespace Kipl\Laracrm\Controllers;
+namespace Vignesh\Laracrm\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use DB;
-use Kipl\Laracrm\Helpers\LCAHelper;
-use Kipl\Laracrm\Models\Module;
-use Kipl\Laracrm\Models\ModuleFields;
-use Kipl\Laracrm\Models\ModuleFieldTypes;
-use Kipl\Laracrm\CodeGenerator;
+use Vignesh\Laracrm\Helpers\LCAHelper;
+use Vignesh\Laracrm\Models\Module;
+use Vignesh\Laracrm\Models\ModuleFields;
+use Vignesh\Laracrm\Models\ModuleFieldTypes;
+use Vignesh\Laracrm\CodeGenerator;
 use App\Role;
 use Schema;
-use Kipl\Laracrm\Models\Menu;
+use Vignesh\Laracrm\Models\Menu;
 
 class ModuleController extends Controller
 {
@@ -319,7 +319,7 @@ class ModuleController extends Controller
 		$modules = LCAHelper::getModuleNames([]);
 		$roles = Role::all();
 
-		$now = date("Y-m-d H:i:s");
+		$now = date("d-m-Y H:i:s");
 
 		foreach($roles as $role) {
 

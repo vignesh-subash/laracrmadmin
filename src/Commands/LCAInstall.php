@@ -4,12 +4,12 @@
  * Help: http://laracrm.com
  */
 
-namespace Kipl\Laracrm\Commands;
+namespace Vignesh\Laracrm\Commands;
 
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Kipl\Laracrm\Helpers\LCAHelper;
+use Vignesh\Laracrm\Helpers\LCAHelper;
 use Eloquent;
 use DB;
 
@@ -45,7 +45,7 @@ class LCAInstall extends Command
 		try {
 			$this->info('LaraCRM installation started...');
 
-			$from = base_path('vendor/kipl/laracrm/src/Installs');
+			$from = base_path('vendor/vignesh/laracrm/src/Installs');
 			$to = base_path();
 
 			$this->info('from: '.$from." to: ".$to);
@@ -299,8 +299,8 @@ class LCAInstall extends Command
 						'email' => $data['email'],
 						'gender' => 'Male',
 						'dept' => "1",
-						'city' => "Pune",
-						'address' => "Karve nagar, Pune 411030",
+						'city' => "Chennai",
+						'address' => "Kodambakkam, Chennai 600034",
 						'about' => "About user / biography",
 						'date_birth' => date("d-m-Y"),
 						'date_hire' => date("d-m-Y"),

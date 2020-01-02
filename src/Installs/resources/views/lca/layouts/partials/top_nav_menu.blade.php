@@ -3,7 +3,7 @@
 	<ul class="nav navbar-nav">
 		<li><a href="{{ url(config('laracrm.adminRoute')) }}">Dashboard</a></li>
 		<?php
-		$menuItems = Kipl\Laracrm\Models\Menu::where("parent", 0)->orderBy('hierarchy', 'asc')->get();
+		$menuItems = Vignesh\Laracrm\Models\Menu::where("parent", 0)->orderBy('hierarchy', 'asc')->get();
 		?>
 		@foreach ($menuItems as $menu)
 			@if($menu->type == "module")

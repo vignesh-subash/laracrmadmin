@@ -1,12 +1,12 @@
 <?php
-namespace Kipl\Laracrm;
+namespace Vignesh\Laracrm;
 
 use Exception;
 use Illuminate\Filesystem\Filesystem;
-use Kipl\Laracrm\Models\Module;
-use Kipl\Laracrm\Models\ModuleFieldTypes;
-use Kipl\Laracrm\Helpers\LCAHelper;
-use Kipl\Laracrm\Models\Menu;
+use Vignesh\Laracrm\Models\Module;
+use Vignesh\Laracrm\Models\ModuleFieldTypes;
+use Vignesh\Laracrm\Helpers\LCAHelper;
+use Vignesh\Laracrm\Models\Menu;
 
 class CodeGenerator
 {
@@ -130,7 +130,7 @@ class CodeGenerator
         $templateDirectory = __DIR__.'/stubs';
 
         LCAHelper::log("info", "Appending routes...", $comm);
-        if(\Kipl\Laracrm\Helpers\LCAHelper::laravel_ver() == 5.5) {
+        if(\Vignesh\Laracrm\Helpers\LCAHelper::laravel_ver() == 5.5) {
 			$routesFile = base_path('routes/admin_routes.php');
 		} else {
 			$routesFile = app_path('Http/admin_routes.php');

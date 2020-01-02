@@ -1,6 +1,6 @@
 <?php
 
-namespace Kipl\Laracrm\Models;
+namespace Vignesh\Laracrm\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
