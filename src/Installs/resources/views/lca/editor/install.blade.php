@@ -2,7 +2,7 @@
 
 @section("contentheader_title", "LCA Code Editor")
 @section("contentheader_description", "Installation instructions")
-@section("section", "LA Code Editor")
+@section("section", "LCA Code Editor")
 @section("sub_section", "Not installed")
 @section("htmlheader_title", "Install LCA Code Editor")
 

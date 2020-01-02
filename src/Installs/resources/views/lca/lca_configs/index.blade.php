@@ -44,7 +44,7 @@
 			</div>
 			<div class="form-group">
 				<label>Sitename Short (3 Characters)</label>
-				<input type="text" class="form-control" placeholder="LA" maxlength="3" name="sitename_short" value="{{$configs->sitename_short}}">
+				<input type="text" class="form-control" placeholder="LCA" maxlength="3" name="sitename_short" value="{{$configs->sitename_short}}">
 			</div>
 			<div class="form-group">
 				<label>Site Description</label>

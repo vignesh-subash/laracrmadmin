@@ -47,7 +47,7 @@ class __controller_class_name__ extends Controller
 		$module = Module::get('__module_name__');
 
 		if(Module::hasAccess($module->id)) {
-			return View('la.__view_folder__.index', [
+			return View('lca.__view_folder__.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
 				'module' => $module
@@ -109,7 +109,7 @@ class __controller_class_name__ extends Controller
 				$module = Module::get('__module_name__');
 				$module->row = $__singular_var__;
 
-				return view('la.__view_folder__.show', [
+				return view('lca.__view_folder__.show', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 					'no_header' => false,
@@ -141,7 +141,7 @@ class __controller_class_name__ extends Controller
 
 				$module->row = $__singular_var__;
 
-				return view('la.__view_folder__.edit', [
+				return view('lca.__view_folder__.edit', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 				])->with('__singular_var__', $__singular_var__);

@@ -1,4 +1,4 @@
-@extends('la.layouts.app')
+@extends('lca.layouts.app')
 
 @section('htmlheader_title', 'Module View')
 
@@ -116,7 +116,7 @@ use Vignesh\Laracrm\Models\Module;
 									<td>{{ $field['minlength'] }}</td>
 									<td>{{ $field['maxlength'] }}</td>
 									<td>@if($field['required']) <span class="text-danger">True</span>@endif </td>
-									<td><?php echo LAHelper::parseValues($field['popup_vals']) ?></td>
+									<td><?php echo LCAHelper::parseValues($field['popup_vals']) ?></td>
 									<td>
 										<a href="{{ url(config('laracrm.adminRoute') . '/module_fields/'.$field['id'].'/edit') }}" class="btn btn-edit-field btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;" id="edit_{{ $field['colname'] }}"><i class="fa fa-edit"></i></a>
 										<a href="{{ url(config('laracrm.adminRoute') . '/module_fields/'.$field['id'].'/delete') }}" class="btn btn-edit-field btn-danger btn-xs" style="display:inline;padding:2px 5px 3px 5px;" id="delete_{{ $field['colname'] }}"><i class="fa fa-trash"></i></a>

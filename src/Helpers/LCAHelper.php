@@ -123,7 +123,7 @@ class LCAHelper
 		return $valueOut;
 	}
 
-	// LAHelper::log("info", "", $commandObject);
+	// LCAHelper::log("info", "", $commandObject);
 	public static function log($type, $text, $commandObject) {
 		if($commandObject) {
 			$commandObject->$type($text);

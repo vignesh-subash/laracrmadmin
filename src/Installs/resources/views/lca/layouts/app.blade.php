@@ -17,7 +17,7 @@
 	<div class="content-wrapper">
 		@if(LCAConfigs::getByKey('layout') == 'layout-top-nav') <div class="container"> @endif
 		@if(!isset($no_header))
-			@include('la.layouts.partials.contentheader')
+			@include('lca.layouts.partials.contentheader')
 		@endif
 
 		<!-- Main content -->

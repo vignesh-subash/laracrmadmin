@@ -55,7 +55,7 @@
                     <?php echo LCAHelper::print_menu($menu); ?>
                 @endif
             @endforeach
-            <!-- LAMenus -->
+            <!-- LCAMenus -->
 
         </ul><!-- /.sidebar-menu -->
     </section>

@@ -16,7 +16,7 @@ use Vignesh\Laracrm\Models\Menu;
 use Vignesh\Laracrm\Models\Module;
 use Vignesh\Laracrm\Models\ModuleFields;
 use Vignesh\Laracrm\Models\ModuleFieldTypes;
-use Vignesh\Laracrm\Helpers\LAHelper;
+use Vignesh\Laracrm\Helpers\LCAHelper;
 
 class MenuController extends Controller
 {
