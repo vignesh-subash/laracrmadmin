@@ -62,7 +62,7 @@ class LCAConfigController extends Controller
 			}
 		}
 		foreach($all as $key => $value) {
-			LAConfigs::where('key', $key)->update(['value' => $value]);
+			LCAConfigs::where('key', $key)->update(['value' => $value]);
 		}
 
 		return redirect(config('laracrm.adminRoute')."/la_configs");

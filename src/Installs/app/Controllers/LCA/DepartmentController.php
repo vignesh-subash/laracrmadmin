@@ -4,7 +4,7 @@
  * Help: http://laracrm.com
  */
 
-namespace App\Http\Controllers\LA;
+namespace App\Http\Controllers\LCA;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

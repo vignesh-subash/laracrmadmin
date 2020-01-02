@@ -1,10 +1,10 @@
 <?php
 /**
  * Controller genrated using LaraAdmin
- * Help: http://laraadmin.com
+ * Help: http://laracrm.com
  */
 
-namespace App\Http\Controllers\LA;
+namespace App\Http\Controllers\LCA;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Response as FacadeResponse;
 use Illuminate\Support\Facades\Input;
 use Collective\Html\FormFacade as Form;
 
-use Dwij\Laraadmin\Models\Module;
-use Dwij\Laraadmin\Helpers\LAHelper;
+use Dwij\Laracrm\Models\Module;
+use Dwij\Laracrm\Helpers\LCAHelper;
 use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use Auth;
@@ -31,11 +31,11 @@ class UploadsController extends Controller
 	public $show_action = true;
 	public $view_col = 'name';
 	public $listing_cols = ['id', 'name', 'path', 'extension', 'caption', 'user_id'];
-	
+
 	public function __construct() {
 		// for authentication (optional)
 		$this->middleware('auth', ['except' => 'get_file']);
-		
+
 		$module = Module::get('Uploads');
 		$listing_cols_temp = array();
 		foreach ($this->listing_cols as $col) {
@@ -47,7 +47,7 @@ class UploadsController extends Controller
 		}
 		$this->listing_cols = $listing_cols_temp;
 	}
-	
+
 	/**
 	 * Display a listing of the Uploads.
 	 *
@@ -56,18 +56,18 @@ class UploadsController extends Controller
 	public function index()
 	{
 		$module = Module::get('Uploads');
-		
+
 		if(Module::hasAccess($module->id)) {
-			return View('la.uploads.index', [
+			return View('lca.uploads.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
 				'module' => $module
 			]);
 		} else {
-            return redirect(config('laraadmin.adminRoute')."/");
+            return redirect(config('laracrm.adminRoute')."/");
         }
 	}
-	
+
 	/**
      * Get file
      *
@@ -76,7 +76,7 @@ class UploadsController extends Controller
     public function get_file($hash, $name)
     {
         $upload = Upload::where("hash", $hash)->first();
-        
+
         // Validate Upload Hash & Filename
         if(!isset($upload->id) || $upload->name != $name) {
             return response()->json([
@@ -100,12 +100,12 @@ class UploadsController extends Controller
         }
 
         if($upload->public || Entrust::hasRole('SUPER_ADMIN') || Auth::user()->id == $upload->user_id) {
-            
+
             $path = $upload->path;
 
             if(!File::exists($path))
                 abort(404);
-            
+
             // Check if thumbnail
             $size = Input::get('s');
             if(isset($size)) {
@@ -113,12 +113,12 @@ class UploadsController extends Controller
                     $size = 150;
                 }
                 $thumbpath = storage_path("thumbnails/".basename($upload->path)."-".$size."x".$size);
-                
+
                 if(File::exists($thumbpath)) {
                     $path = $thumbpath;
                 } else {
                     // Create Thumbnail
-                    LAHelper::createThumbnail($upload->path, $thumbpath, $size, $size, "transparent");
+                    LCAHelper::createThumbnail($upload->path, $thumbpath, $size, $size, "transparent");
                     $path = $thumbpath;
                 }
             }
@@ -133,7 +133,7 @@ class UploadsController extends Controller
                 $response = FacadeResponse::make($file, 200);
                 $response->header("Content-Type", $type);
             }
-            
+
             return $response;
         } else {
             return response()->json([
@@ -149,10 +149,10 @@ class UploadsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function upload_files() {
-        
+
 		if(Module::hasAccess("Uploads", "create")) {
 			$input = Input::all();
-			
+
 			if(Input::hasFile('file')) {
 				/*
 				$rules = array(
@@ -164,26 +164,26 @@ class UploadsController extends Controller
 				}
 				*/
 				$file = Input::file('file');
-				
+
 				// print_r($file);
-				
+
 				$folder = storage_path('uploads');
 				$filename = $file->getClientOriginalName();
-	
-				$date_append = date("Y-m-d-His-");
+
+				$date_append = date("d-m-Y-His-");
 				$upload_success = Input::file('file')->move($folder, $date_append.$filename);
-				
+
 				if( $upload_success ) {
-	
+
 					// Get public preferences
-					// config("laraadmin.uploads.default_public")
+					// config("laracrm.uploads.default_public")
 					$public = Input::get('public');
 					if(isset($public)) {
 						$public = true;
 					} else {
 						$public = false;
 					}
-	
+
 					$upload = Upload::create([
 						"name" => $filename,
 						"path" => $folder.DIRECTORY_SEPARATOR.$date_append.$filename,
@@ -202,7 +202,7 @@ class UploadsController extends Controller
 						}
 					}
 					$upload->save();
-	
+
 					return response()->json([
 						"status" => "success",
 						"upload" => $upload
@@ -232,12 +232,12 @@ class UploadsController extends Controller
     {
 		if(Module::hasAccess("Uploads", "view")) {
 			$uploads = array();
-	
+
 			// print_r(Auth::user()->roles);
 			if(Entrust::hasRole('SUPER_ADMIN')) {
 				$uploads = Upload::all();
 			} else {
-				if(config('laraadmin.uploads.private_uploads')) {
+				if(config('laracrm.uploads.private_uploads')) {
 					// Upload::where('user_id', 0)->first();
 					$uploads = Auth::user()->uploads;
 				} else {
@@ -254,10 +254,10 @@ class UploadsController extends Controller
 				$u->public = $upload->public;
 				$u->caption = $upload->caption;
 				$u->user = $upload->user->name;
-				
+
 				$uploads2[] = $u;
 			}
-			
+
 			// $folder = storage_path('/uploads');
 			// $files = array();
 			// if(file_exists($folder)) {
@@ -286,19 +286,19 @@ class UploadsController extends Controller
         if(Module::hasAccess("Uploads", "edit")) {
 			$file_id = Input::get('file_id');
 			$caption = Input::get('caption');
-			
+
 			$upload = Upload::find($file_id);
 			if(isset($upload->id)) {
 				if($upload->user_id == Auth::user()->id || Entrust::hasRole('SUPER_ADMIN')) {
-	
+
 					// Update Caption
 					$upload->caption = $caption;
 					$upload->save();
-	
+
 					return response()->json([
 						'status' => "success"
 					]);
-	
+
 				} else {
 					return response()->json([
 						'status' => "failure",
@@ -329,19 +329,19 @@ class UploadsController extends Controller
         if(Module::hasAccess("Uploads", "edit")) {
 			$file_id = Input::get('file_id');
 			$filename = Input::get('filename');
-			
+
 			$upload = Upload::find($file_id);
 			if(isset($upload->id)) {
 				if($upload->user_id == Auth::user()->id || Entrust::hasRole('SUPER_ADMIN')) {
-	
+
 					// Update Caption
 					$upload->name = $filename;
 					$upload->save();
-	
+
 					return response()->json([
 						'status' => "success"
 					]);
-	
+
 				} else {
 					return response()->json([
 						'status' => "failure",
@@ -377,19 +377,19 @@ class UploadsController extends Controller
 			} else {
 				$public = false;
 			}
-			
+
 			$upload = Upload::find($file_id);
 			if(isset($upload->id)) {
 				if($upload->user_id == Auth::user()->id || Entrust::hasRole('SUPER_ADMIN')) {
-	
+
 					// Update Caption
 					$upload->public = $public;
 					$upload->save();
-	
+
 					return response()->json([
 						'status' => "success"
 					]);
-	
+
 				} else {
 					return response()->json([
 						'status' => "failure",
@@ -419,18 +419,18 @@ class UploadsController extends Controller
     {
         if(Module::hasAccess("Uploads", "delete")) {
 			$file_id = Input::get('file_id');
-			
+
 			$upload = Upload::find($file_id);
 			if(isset($upload->id)) {
 				if($upload->user_id == Auth::user()->id || Entrust::hasRole('SUPER_ADMIN')) {
-	
+
 					// Update Caption
 					$upload->delete();
-	
+
 					return response()->json([
 						'status' => "success"
 					]);
-	
+
 				} else {
 					return response()->json([
 						'status' => "failure",

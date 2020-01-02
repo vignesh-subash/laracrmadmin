@@ -1,10 +1,10 @@
 <?php
 /**
  * Controller genrated using LaraAdmin
- * Help: http://laraadmin.com
+ * Help: http://laracrm.com
  */
 
-namespace App\Http\Controllers\LA;
+namespace App\Http\Controllers\LCA;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,8 +14,8 @@ use DB;
 use Validator;
 use Datatables;
 use Collective\Html\FormFacade as Form;
-use Dwij\Laraadmin\Models\Module;
-use Dwij\Laraadmin\Models\ModuleFields;
+use Kipl\Laracrm\Models\Module;
+use Kipl\Laracrm\Models\ModuleFields;
 use Zizaco\Entrust\EntrustFacade as Entrust;
 
 use App\Role;
@@ -29,7 +29,7 @@ class RolesController extends Controller
 
 	public function __construct() {
 		// Field Access of Listing Columns
-		if(\Dwij\Laraadmin\Helpers\LAHelper::laravel_ver() == 5.5) {
+		if(\Kipl\Laracrm\Helpers\LCAHelper::laravel_ver() == 5.5) {
 			$this->middleware(function ($request, $next) {
 				$this->listing_cols = ModuleFields::listingColumnAccessScan('Roles', $this->listing_cols);
 				return $next($request);
@@ -49,13 +49,13 @@ class RolesController extends Controller
 		$module = Module::get('Roles');
 
 		if(Module::hasAccess($module->id)) {
-			return View('la.roles.index', [
+			return View('lca.roles.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
 				'module' => $module
 			]);
 		} else {
-            return redirect(config('laraadmin.adminRoute')."/");
+            return redirect(config('laracrm.adminRoute')."/");
         }
 	}
 
@@ -100,10 +100,10 @@ class RolesController extends Controller
 			$perm = Permission::where("name", "ADMIN_PANEL")->first();
 			$role->attachPermission($perm);
 
-			return redirect()->route(config('laraadmin.adminRoute') . '.roles.index');
+			return redirect()->route(config('laracrm.adminRoute') . '.roles.index');
 
 		} else {
-			return redirect(config('laraadmin.adminRoute')."/");
+			return redirect(config('laracrm.adminRoute')."/");
 		}
 	}
 
@@ -128,7 +128,7 @@ class RolesController extends Controller
 					$module_obj->accesses = Module::getRoleAccess($module_obj->id, $id)[0];
 					$modules_access[] = $module_obj;
 				}
-				return view('la.roles.show', [
+				return view('lca.roles.show', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 					'no_header' => true,
@@ -142,7 +142,7 @@ class RolesController extends Controller
 				]);
 			}
 		} else {
-			return redirect(config('laraadmin.adminRoute')."/");
+			return redirect(config('laracrm.adminRoute')."/");
 		}
 	}
 
@@ -162,7 +162,7 @@ class RolesController extends Controller
 
 				$module->row = $role;
 
-				return view('la.roles.edit', [
+				return view('lca.roles.edit', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 				])->with('role', $role);
@@ -173,7 +173,7 @@ class RolesController extends Controller
 				]);
 			}
 		} else {
-			return redirect(config('laraadmin.adminRoute')."/");
+			return redirect(config('laracrm.adminRoute')."/");
 		}
 	}
 
@@ -204,10 +204,10 @@ class RolesController extends Controller
 
 			$insert_id = Module::updateRow("Roles", $request, $id);
 
-			return redirect()->route(config('laraadmin.adminRoute') . '.roles.index');
+			return redirect()->route(config('laracrm.adminRoute') . '.roles.index');
 
 		} else {
-			return redirect(config('laraadmin.adminRoute')."/");
+			return redirect(config('laracrm.adminRoute')."/");
 		}
 	}
 
@@ -223,9 +223,9 @@ class RolesController extends Controller
 			Role::find($id)->delete();
 
 			// Redirecting to index() method
-			return redirect()->route(config('laraadmin.adminRoute') . '.roles.index');
+			return redirect()->route(config('laracrm.adminRoute') . '.roles.index');
 		} else {
-			return redirect(config('laraadmin.adminRoute')."/");
+			return redirect(config('laracrm.adminRoute')."/");
 		}
 	}
 
@@ -249,7 +249,7 @@ class RolesController extends Controller
 					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
 				}
 				if($col == $this->view_col) {
-					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/roles/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
+					$data->data[$i][$j] = '<a href="'.url(config('laracrm.adminRoute') . '/roles/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
 				}
 				// else if($col == "author") {
 				//    $data->data[$i][$j];
@@ -259,11 +259,11 @@ class RolesController extends Controller
 			if($this->show_action) {
 				$output = '';
 				if(Module::hasAccess("Roles", "edit")) {
-					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/roles/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
+					$output .= '<a href="'.url(config('laracrm.adminRoute') . '/roles/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 
 				if(Module::hasAccess("Roles", "delete")) {
-					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.roles.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
+					$output .= Form::open(['route' => [config('laracrm.adminRoute') . '.roles.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();
 				}
@@ -352,9 +352,9 @@ class RolesController extends Controller
 					DB:: table('role_module')->where('role_id', $id)->where('module_id', $module->id)->update(['acc_view' => 0, 'acc_create' => 0, 'acc_edit' => 0, 'acc_delete' => 0]);
 				}
 			}
-			return redirect(config('laraadmin.adminRoute') . '/roles/'.$id.'#tab-access');
+			return redirect(config('laracrm.adminRoute') . '/roles/'.$id.'#tab-access');
 		} else {
-			return redirect(config('laraadmin.adminRoute')."/");
+			return redirect(config('laracrm.adminRoute')."/");
 		}
 	}
 }
